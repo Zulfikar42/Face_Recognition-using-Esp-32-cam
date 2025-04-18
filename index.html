@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Face Recognition Trigger</title>
+</head>
+<body>
+  <h2>Click to Run Face Recognition</h2>
+  <button onclick="detectFace()">Detect Face</button>
+  <p id="result"></p>
+
+  <script>
+    async function detectFace() {
+      document.getElementById("result").innerText = "Running...";
+      const response = await fetch("http://127.0.0.1:5000");
+      const data = await response.json();
+      document.getElementById("result").innerText = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>
